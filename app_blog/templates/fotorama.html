@@ -8,11 +8,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
 {% endblock %}
 
-<div class="fotorama">
-    {% for image in images %}
-        <img src="{{ image.image.url }}"
-             alt="{{ image.description }}"
-             data-caption="{{ image.description }}">
-    {% endfor %}
+<div class="d-flex justify-content-center">
+    <div class="fotorama"
+         data-width="500"
+         data-height="350"
+         data-nav="thumbs"
+         data-allowfullscreen="true"
+         data-loop="true"
+         data-autoplay="3000">
+        {% for image in images %}
+            <img src="{{ image.image.url }}"
+                 alt="{{ image.description }}"
+                 style="width:500px; height:350px; object-fit:cover;"
+                 data-caption="{{ image.description }}">
+        {% endfor %}
+    </div>
 </div>
 {% endspaceless %}
